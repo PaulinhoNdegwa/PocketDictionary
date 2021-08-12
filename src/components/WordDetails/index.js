@@ -1,62 +1,48 @@
-const details = {
-    "word": "hello",
-    "phonetics": [
-      {
-        "text": "/həˈloʊ/",
-        "audio": "https://lex-audio.useremarkable.com/mp3/hello_us_1_rr.mp3"
-      },
-      {
-        "text": "/hɛˈloʊ/",
-        "audio": "https://lex-audio.useremarkable.com/mp3/hello_us_2_rr.mp3"
-      }
-    ],
-    "meanings": [
-      {
-        "partOfSpeech": "exclamation",
-        "definitions": [
-          {
-            "definition": "Used as a greeting or to begin a phone conversation.",
-            "example": "hello there, Katie!"
-          }
-        ]
-      },
-      {
-        "partOfSpeech": "noun",
-        "definitions": [
-          {
-            "definition": "An utterance of “hello”; a greeting.",
-            "example": "she was getting polite nods and hellos from people",
-            "synonyms": [
-              "greeting",
-              "welcome",
-              "salutation",
-              "saluting",
-              "hailing",
-              "address",
-              "hello",
-              "hallo"
-            ]
-          }
-        ]
-      },
-      {
-        "partOfSpeech": "intransitive verb",
-        "definitions": [
-          {
-            "definition": "Say or shout “hello”; greet someone.",
-            "example": "I pressed the phone button and helloed"
-          }
-        ]
-      }
-    ]
-  }
+const WordDetails = props => {
+    const { details, lang } = props;
+    const mapSynonyms = synonyms => {
+        return synonyms.map((synonym, index) => {
+            return <span className="font-normal text-gray-600 text-sm italic" key={index}>{synonym}, </span>
+        })
+    }
 
-const WordDetails = () => {
-    return ( 
-        <div>
-            
+    const mapDefinitions = definitions => {
+        return definitions.map((definition, index) => {
+            return (
+                <li key={index}>
+                    <p className="font-base text-gray-900"> - {definition.definition}</p>
+                    <p className="font-light pl-8">Eg. {definition.example}</p>
+                    {definition.synonyms.length > 0 ? <p>Synonyms: {mapSynonyms(definition.synonyms)}</p> : null}
+                    {definition.antonyms.length > 0 ? <p>Antonyms: {mapSynonyms(definition.antonyms)}</p> : null}
+                </li>
+
+            )
+        })
+    }
+
+    const mapMeanings = (meanings) => {
+        return meanings.map((meaning, index) => {
+            return (
+                <li className="mx-4" key={index}>
+                    <p>{index + 1}. <span className="italic font-semibold">{meaning.partOfSpeech}</span></p>
+                    <ul>{mapDefinitions(meaning.definitions)}</ul>
+                    <hr className="my-2" />
+                </li>
+            )
+        });
+    }
+    return (
+        <div className="px-6 py-2">
+            <p className="text-lg capitalize font-bold my-1">{details.word} <span className="lowercase">in</span> {lang}</p>
+            <p className="font-light text-base text-indigo-500 font-semibold font-sans my-1">{details.phonetic}</p>
+            <p>Origin: <span className="italic text-base text-gray-600 my-1">{details.origin}</span></p>
+            <div className="my-3">
+                <ul>
+                    {mapMeanings(details.meanings)}
+                </ul>
+            </div>
         </div>
-     );
+    );
 }
- 
+
 export default WordDetails;
