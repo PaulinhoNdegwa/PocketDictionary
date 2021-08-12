@@ -13,7 +13,7 @@ class Search extends Component {
                     <label className="block text-sm text-md text-gray-500 py-1" htmlFor="lang">Choose Language</label>
                     <select name="lang" id="lang" value={lang} onChange={handleLangChange} className="w-full h-9 py-1 border-gray-500 text-sm rounded-lg focus:border-lg focus:border-indigo-500">
                         <option value="en_US">English(US)</option>
-                        <option value="en">English(UK)</option>
+                        <option value="en_GB">English(UK)</option>
                         <option value="fr">French</option>
                         <option value="de">German</option>
                         <option value="es">Spanish</option>

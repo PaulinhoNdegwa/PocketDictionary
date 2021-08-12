@@ -10,7 +10,7 @@ class Main extends Component {
     state = {
         loading: false,
         word: "hello",
-        lang: "en_US",
+        lang: "en_GB",
         response: null,
         error: false,
         errorMessage: "Couldn't fetch the definition. Try another word or contact admin."

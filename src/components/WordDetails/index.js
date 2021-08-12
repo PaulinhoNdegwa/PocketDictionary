@@ -33,7 +33,7 @@ const WordDetails = props => {
     }
     return (
         <div className="px-6 py-2">
-            <p className="text-lg capitalize font-bold my-1">{details.word} <span className="lowercase">in</span> {lang}</p>
+            <p className="text-lg capitalize font-bold my-1">{details.word}</p>
             <p className="font-light text-base text-indigo-500 font-semibold font-sans my-1">{details.phonetic}</p>
             <p>Origin: <span className="italic text-base text-gray-600 my-1">{details.origin}</span></p>
             <div className="my-3">
