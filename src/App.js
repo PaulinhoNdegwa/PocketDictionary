@@ -8,10 +8,13 @@ import Main from './components/Main';
 function App() {
   return (
     <Fragment>
-      <Header />
-      <Main />
-      <Footer />
+      <div className="flex flex-col my-2 w-full h-screen ">
+        <Header />
+        <Main />
+        <Footer />
+      </div>
     </Fragment>
+
   );
 }
 
