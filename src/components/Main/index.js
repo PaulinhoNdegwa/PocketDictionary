@@ -13,7 +13,7 @@ class Main extends Component {
         lang: "en_US",
         response: null,
         error: false,
-        errorMessage: "Error accessing server. Try again later or contact the admin."
+        errorMessage: "Couldn't fetch the definition. Try another word or contact admin."
     }
 
     componentDidMount() {
@@ -25,7 +25,7 @@ class Main extends Component {
 
     handleSubmit = () => {
         const { word, lang } = this.state;
-        this.setState({ loading: true, response: null });
+        this.setState({ loading: true, error: false, response: null });
         axios.get(`https://api.dictionaryapi.dev/api/v2/entries/${lang}/${word}`)
             .then(response => {
                 this.setState({
