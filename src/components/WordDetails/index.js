@@ -1,5 +1,5 @@
 const WordDetails = props => {
-    const { details, lang } = props;
+    const { details } = props;
     const mapSynonyms = synonyms => {
         return synonyms.map((synonym, index) => {
             return <span className="font-normal text-gray-600 text-sm italic" key={index}>{synonym}, </span>

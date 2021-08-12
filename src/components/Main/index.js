@@ -41,7 +41,7 @@ class Main extends Component {
     render() {
         const { loading, response, lang, word, error, errorMessage } = this.state;
         return (
-            <div className="flex-1 py-1 px-3 max-w-3xl w-full sm:mx-auto">
+            <div className="flex-1 py-2 px-3 max-w-3xl w-full sm:mx-auto">
                 <Search
                     handleWordChange={this.handleWordChange}
                     handleLangChange={this.handleLangChange}
