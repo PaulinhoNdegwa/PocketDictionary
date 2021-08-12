@@ -4,10 +4,10 @@ class Search extends Component {
     render() {
         const { handleWordChange, handleLangChange, handleSubmit, word, lang } = this.props;
         return (
-            <form className="flex flex-col px-4 mb-2 sm:flex-row sm:flex-wrap sm:justify-evenly">
+            <form autoComplete="off" className="flex flex-col px-4 mb-2 sm:flex-row sm:flex-wrap sm:justify-evenly">
                 <div className="flex-1 my-1 mx-1">
                     <label className="block text-sm text-md text-gray-500 py-1" htmlFor="word">Enter Word</label>
-                    <input onChange={handleWordChange}  value={word} className="w-full h-9 py-1 border-b-1 border-gray-500 text-md rounded-lg focus:border-lg focus:border-indigo-500" type="text" name="word" id="word" placeholder="Enter search word" />
+                    <input autoComplete="off" onChange={handleWordChange}  value={word} className="w-full h-9 py-1 border-b-1 border-gray-500 text-md rounded-lg focus:border-lg focus:border-indigo-500" type="text" name="word" id="word" placeholder="Enter search word" />
                 </div>
                 <div className="flex-1 my-1 mx-1">
                     <label className="block text-sm text-md text-gray-500 py-1" htmlFor="lang">Choose Language</label>
